@@ -13,6 +13,7 @@
         android:layout_height="wrap_content"
         android:paddingTop="40dp"
         android:paddingBottom="8dp"
+
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -22,24 +23,28 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="40dp"
             android:paddingHorizontal="16dp">
 
             <ImageView
-                android:layout_width="16dp"
-                android:layout_height="16dp"
+                android:id="@+id/ivBackButton"
+                android:layout_width="18dp"
+                android:layout_height="18dp"
                 android:src="@drawable/ic_arrow_back"
+                android:visibility="gone"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.5" />
+                app:layout_constraintVertical_bias="0.5"
+                android:contentDescription="@string/image" />
 
             <TextView
+                android:id="@+id/tvFragmentTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:fontFamily="@font/poppins_semi_bold"
-                android:text="Fragment Title"
+                android:text="@string/fragment_title"
                 android:textSize="16sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -49,13 +54,16 @@
                 app:layout_constraintVertical_bias="0.5" />
 
             <ImageView
-                android:layout_width="40dp"
-                android:layout_height="40dp"
+                android:id="@+id/ivProfile"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
                 android:background="@drawable/image_background_circular"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.5" />
+                app:layout_constraintVertical_bias="0.5"
+                app:srcCompat="@drawable/profile_picture"
+                android:contentDescription="@string/image" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
