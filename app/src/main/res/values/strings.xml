@@ -1,5 +1,21 @@
 <resources>
     <string name="app_name">SchoterNews</string>
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="home_fragment">Schoter News</string>
+    <string name="detail_fragment">Detail News</string>
+    <string name="profile_fragment">Profile</string>
+    <string name="imageArticle">imageArticle</string>
+    <string name="search_article">Search Article</string>
+    <string name="image">image</string>
+    <string name="fragment_title">Fragment Title</string>
+    <string name="author">Author</string>
+    <string name="published_at">Published At</string>
+    <string name="description">Description</string>
+    <string name="description_article">Description Article</string>
+    <string name="source_article">Source Article</string>
+    <string name="title_article">Title Article</string>
+    <string name="dev">Aditya Gocendra</string>
+    <string name="ordinary_people">Ordinary people</string>
+    <string name="contact">Contact</string>
+
 </resources>
