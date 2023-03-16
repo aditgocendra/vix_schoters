@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="fragment_title">Fragment Title</string>
+    <string name="author">Author</string>
+    <string name="description">Description</string>
+    <string name="source_article">Source Article</string>
+    <string name="title_article">Title Article</string>
+    <string name="dev">Aditya Gocendra</string>
+    <string name="ordinary_people">Ordinary people</string>
+    <string name="contact">Contact</string>
+</resources>
