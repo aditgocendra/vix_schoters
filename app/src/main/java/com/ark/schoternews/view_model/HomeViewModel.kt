@@ -13,10 +13,10 @@ class HomeViewModel(private val newsRepository : NewsRepository) : ViewModel() {
 
     var listArticle = MutableLiveData<List<Article>>()
 
-    fun setArticles(){
+    fun setArticles(query : String){
         viewModelScope.launch {
             val response = try {
-                newsRepository.getNews()
+                newsRepository.getNews(query = query)
             }catch (e : Exception){
                 Log.e("Error", e.message.toString())
                 return@launch

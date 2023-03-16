@@ -8,9 +8,9 @@ import retrofit2.Response
 
 class NewsRepository {
 
-    suspend fun getNews() : Response<ResponseNews> {
+    suspend fun getNews(query : String) : Response<ResponseNews> {
         return withContext(Dispatchers.IO){
-            RetrofitInstance.api.getNews("indonesia", "id")
+            RetrofitInstance.api.getNews(query, "id")
         }
     }
 }
