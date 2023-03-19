@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.NavHostFragment
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.ark.schoternews.MainActivity
 import com.ark.schoternews.R
 import com.ark.schoternews.core.adapter.ArticleAdapter
 import com.ark.schoternews.data.repositories.NewsRepository
@@ -22,7 +23,11 @@ class HomeFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        viewModel = HomeViewModel(NewsRepository())
+        val dbLocal = (activity as MainActivity).dbLocal
+        val newsRemote = (activity as MainActivity).newsRemote
+        val newsRepository = NewsRepository(dbLocal, newsRemote)
+
+        viewModel = HomeViewModel(newsRepository)
 
         viewModel.listArticle.observe(this) {
             binding.progressCircular.visibility = View.GONE
@@ -35,8 +40,9 @@ class HomeFragment : Fragment() {
             }else{
                 binding.tvErrorMessage.visibility = View.GONE
             }
-
         }
+
+
 
     }
 
@@ -49,8 +55,8 @@ class HomeFragment : Fragment() {
             binding.progressCircular.visibility = View.VISIBLE
             viewModel.setArticles("indonesia")
         }
-    }
 
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -77,7 +83,15 @@ class HomeFragment : Fragment() {
             binding.tvErrorMessage.visibility = View.GONE
             binding.progressCircular.visibility = View.VISIBLE
 
+        }
 
+        binding.ivBookmarks.setOnClickListener {
+            binding.progressCircular.visibility = View.VISIBLE
+            viewModel.setArticleLocal()
+        }
+
+        binding.ivProfile.setOnClickListener {
+            navController.navigate(R.id.action_homeFragment_to_profileFragment)
         }
 
         return binding.root
