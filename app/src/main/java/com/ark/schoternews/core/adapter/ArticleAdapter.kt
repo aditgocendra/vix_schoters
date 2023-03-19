@@ -64,9 +64,11 @@ class ArticleAdapter(private val navController : NavController, private val acti
             val bundle = bundleOf(
                 "title" to article.title,
                 "urlImage" to urlImage,
-                "author" to author,
-                "publishedAt" to publishedAt,
-                "description" to article.description
+                "author" to article.author,
+                "publishedAt" to article.publishedAt,
+                "description" to article.description,
+                "content" to article.content,
+                "url" to article.url
             )
 
             navController.navigate(action, bundle)
