@@ -29,4 +29,18 @@ class HomeViewModel(private val newsRepository : NewsRepository) : ViewModel() {
         }
     }
 
+    fun setArticleLocal(){
+        viewModelScope.launch {
+            val result = newsRepository.getArticle()
+
+            val articles : MutableList<Article> = mutableListOf()
+
+            for (v in result){
+               articles.add(Article(title = v.title, description = v.description!!, content = v.content, url = v.url, urlToImage = v.urlToImage!!, publishedAt = v.publishedAt, author = v.author!!, id = v.id))
+            }
+
+            listArticle.value = articles
+        }
+    }
+
 }
