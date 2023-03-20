@@ -8,8 +8,10 @@ This application was made to complete the Virtual Internship Experience program 
 This app is a news app, all data shown is taken from NewsAPI.
 
 ## Architecture on this project : MVVM
-![MVVM](https://user-images.githubusercontent.com/52599512/226360708-4071be5d-4fda-4739-b945-e572f8cf68e7.png)
 
+<p align="center">
+    <img src="https://user-images.githubusercontent.com/52599512/226360708-4071be5d-4fda-4739-b945-e572f8cf68e7.png" width="150">
+</p>
 
 ## Screenshoot
 |    |    |
