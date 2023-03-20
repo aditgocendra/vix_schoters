@@ -16,5 +16,8 @@ This app is a news app, all data shown is taken from NewsAPI.
 ## Screenshoot
 |    |    |
 ---- | ----
-![Screenshot1](https://user-images.githubusercontent.com/52599512/226355601-bb8cb18b-ae2c-4b7d-bbe6-ed258238655b.jpg) | ![Screenshot2](https://user-images.githubusercontent.com/52599512/226355780-76f152c9-dea6-4d99-ba48-1c3c6041c119.jpg)
+![Screenshot1](https://user-images.githubusercontent.com/52599512/226369940-f2bda48b-1ec3-4f7d-af50-f82a3722ec00.jpg) | ![Screenshot1](https://user-images.githubusercontent.com/52599512/226370062-b447d575-ddf9-4939-bdc5-4600df348ba9.jpg)
+
+
+ 
 ---
