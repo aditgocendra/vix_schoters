@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.navigation.fragment.NavHostFragment
 import com.ark.schoternews.MainActivity
 import com.ark.schoternews.R
@@ -18,6 +19,7 @@ import com.squareup.picasso.Picasso
 class DetailNewsFragment : Fragment() {
     private lateinit var binding : FragmentDetailNewsBinding
     private lateinit var viewModel : DetailViewModel
+    private lateinit var article : Article
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,6 +29,16 @@ class DetailNewsFragment : Fragment() {
         val newsRepository = NewsRepository(dbLocal, newsRemote)
 
         viewModel = DetailViewModel(newsRepository)
+
+        viewModel.selectArticleData.observe(this) {
+            if (it == null){
+                viewModel.bookmarkAdd(article)
+                Toast.makeText(requireActivity(), "Success add to bookmark", Toast.LENGTH_SHORT).show()
+                return@observe
+            }
+
+            Toast.makeText(requireActivity(), "This article is already available, bookmarked", Toast.LENGTH_SHORT).show()
+        }
 
     }
 
@@ -48,6 +60,17 @@ class DetailNewsFragment : Fragment() {
         val content = arguments?.getString("content").toString()
         val url = arguments?.getString("url").toString()
 
+        article = Article(
+            id = 0,
+            author = author,
+            content = content,
+            description = description,
+            publishedAt = publishedAt,
+            urlToImage = urlImage,
+            url = url,
+            title = title
+        )
+
 
         if (urlImage.isNotEmpty()) Picasso.get().load(urlImage).into(binding.ivImageArticle)
 
@@ -58,18 +81,7 @@ class DetailNewsFragment : Fragment() {
 
 
         binding.btnBookmark.setOnClickListener {
-            viewModel.bookmarkArticle(
-                article = Article(
-                    id = 0,
-                    author = author,
-                    content = content,
-                    description = description,
-                    publishedAt = publishedAt,
-                    urlToImage = urlImage,
-                    url = url,
-                    title = title
-                )
-            )
+            viewModel.selectArticle(title)
         }
 
         binding.ivBackButton.setOnClickListener {
