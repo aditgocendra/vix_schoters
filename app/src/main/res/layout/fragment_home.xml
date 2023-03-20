@@ -31,150 +31,151 @@
 
     </RelativeLayout>
 
-    <LinearLayout
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/swipeRefresh"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="match_parent">
 
-        <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbar"
+
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingTop="40dp"
-            android:paddingBottom="8dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:outlineProvider="bounds"
-            app:contentInsetStart="0dp"
-            android:elevation="0.4dp">
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:paddingHorizontal="16dp">
-
-                <ImageView
-                    android:id="@+id/ivBookmarks"
-                    android:layout_width="18dp"
-                    android:layout_height="18dp"
-                    android:src="@drawable/ic_bookmarks"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.5"
-                    android:contentDescription="@string/image" />
-
-<!--                <ImageView-->
-<!--                    android:id="@+id/ivBackButton"-->
-<!--                    android:layout_width="18dp"-->
-<!--                    android:layout_height="18dp"-->
-<!--                    android:src="@drawable/ic_arrow_back"-->
-<!--                    android:visibility="gone"-->
-<!--                    app:layout_constraintBottom_toBottomOf="parent"-->
-<!--                    app:layout_constraintStart_toStartOf="parent"-->
-<!--                    app:layout_constraintTop_toTopOf="parent"-->
-<!--                    app:layout_constraintVertical_bias="0.5"-->
-<!--                    android:contentDescription="@string/image" />-->
-
-                <TextView
-                    android:id="@+id/tvFragmentTitle"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:fontFamily="@font/poppins_semi_bold"
-                    android:text="@string/home_fragment"
-                    android:textSize="16sp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.5"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.5" />
-
-                <ImageView
-                    android:id="@+id/ivProfile"
-                    android:layout_width="32dp"
-                    android:layout_height="32dp"
-                    android:background="@drawable/image_background_circular"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.5"
-                    app:srcCompat="@drawable/profile_picture"
-                    android:contentDescription="@string/image" />
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-        </androidx.appcompat.widget.Toolbar>
-
-
-        <androidx.cardview.widget.CardView
-            android:id="@+id/cardView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="8dp"
-            android:elevation="0.5dp"
-            app:cardCornerRadius="12dp">
-
-            <LinearLayout
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginHorizontal="8dp"
-                android:gravity="center">
+                android:paddingTop="40dp"
+                android:paddingBottom="8dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:outlineProvider="bounds"
+                app:contentInsetStart="0dp"
+                android:elevation="0.4dp">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:paddingHorizontal="16dp">
+
+                    <ImageView
+                        android:id="@+id/ivBookmarks"
+                        android:layout_width="18dp"
+                        android:layout_height="18dp"
+                        android:src="@drawable/ic_bookmarks"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintVertical_bias="0.5"
+                        android:contentDescription="@string/image" />
 
 
-                <EditText
-                    android:id="@+id/edtSearch"
-                    android:layout_width="0dp"
+                    <TextView
+                        android:id="@+id/tvFragmentTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:fontFamily="@font/poppins_semi_bold"
+                        android:text="@string/home_fragment"
+                        android:textSize="16sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintVertical_bias="0.5" />
+
+                    <ImageView
+                        android:id="@+id/ivProfile"
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:background="@drawable/image_background_circular"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintVertical_bias="0.5"
+                        app:srcCompat="@drawable/profile_picture"
+                        android:contentDescription="@string/image" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.appcompat.widget.Toolbar>
+
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:elevation="0.5dp"
+                app:cardCornerRadius="12dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@android:color/transparent"
-                    android:fontFamily="@font/poppins_regular"
-                    android:textSize="14sp"
-                    android:paddingTop="15dp"
-                    android:paddingBottom="15dp"
-                    android:layout_weight="1"
-                    android:hint="@string/search_article"
-                    android:importantForAutofill="no"
-                    android:inputType="text" />
+                    android:orientation="horizontal"
+                    android:layout_marginHorizontal="8dp"
+                    android:gravity="center">
 
-                <ImageButton
-                    android:id="@+id/btnSearch"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/background_button"
-                    android:contentDescription="@string/imageArticle"
-                    android:minWidth="32dp"
-                    android:minHeight="32dp"
-                    android:padding="4dp"
-                    android:layout_margin="4dp"
-                    android:src="@drawable/ic_search"
-                    tools:ignore="TouchTargetSizeCheck" />
 
-                <ImageButton
-                    android:id="@+id/btnRemoveBookmark"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/background_button"
-                    android:contentDescription="@string/imageArticle"
-                    android:minWidth="32dp"
-                    android:minHeight="32dp"
-                    android:padding="4dp"
-                    android:layout_margin="4dp"
-                    android:src="@drawable/ic_bookmark_remove"
-                    tools:ignore="TouchTargetSizeCheck" />
+                    <EditText
+                        android:id="@+id/edtSearch"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:background="@android:color/transparent"
+                        android:fontFamily="@font/poppins_regular"
+                        android:textSize="14sp"
+                        android:paddingTop="15dp"
+                        android:paddingBottom="15dp"
+                        android:layout_weight="1"
+                        android:hint="@string/search_article"
+                        android:importantForAutofill="no"
+                        android:inputType="text" />
 
-            </LinearLayout>
+                    <ImageButton
+                        android:id="@+id/btnSearch"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/background_button"
+                        android:contentDescription="@string/imageArticle"
+                        android:minWidth="32dp"
+                        android:minHeight="32dp"
+                        android:padding="4dp"
+                        android:layout_margin="4dp"
+                        android:src="@drawable/ic_search"
+                        tools:ignore="TouchTargetSizeCheck" />
 
-        </androidx.cardview.widget.CardView>
+                    <ImageButton
+                        android:id="@+id/btnRemoveBookmark"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/background_button"
+                        android:contentDescription="@string/imageArticle"
+                        android:minWidth="32dp"
+                        android:minHeight="32dp"
+                        android:padding="4dp"
+                        android:layout_margin="4dp"
+                        android:src="@drawable/ic_bookmark_remove"
+                        tools:ignore="TouchTargetSizeCheck" />
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerNews"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
+                </LinearLayout>
 
-    </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerNews"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+
+        </LinearLayout>
+
+
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+
+
 
 
 </FrameLayout>

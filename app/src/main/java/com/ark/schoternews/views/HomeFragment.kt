@@ -94,6 +94,11 @@ class HomeFragment : Fragment() {
             navController.navigate(com.ark.schoternews.R.id.action_homeFragment_to_profileFragment)
         }
 
+        binding.swipeRefresh.setOnRefreshListener {
+            viewModel.setArticles("indonesia")
+            binding.swipeRefresh.isRefreshing = false
+        }
+
         binding.btnRemoveBookmark.setOnClickListener {
             val dialog = Dialog(requireContext())
             dialog.setContentView(com.ark.schoternews.R.layout.layout_dialog_confirmation)
