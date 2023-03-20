@@ -23,5 +23,9 @@
     <string name="close">close</string>
     <string name="my_email">gocendra123@gmail.com</string>
     <string name="_62_897_5778_418">+62 897 5778 418</string>
+    <string name="delete_bookmark">Delete Bookmark</string>
+    <string name="are_you_sure_delete_all_data_bookmark">Are you sure delete all data bookmark ?</string>
+    <string name="cancel">Cancel</string>
+    <string name="yes">Yes</string>
 
 </resources>
