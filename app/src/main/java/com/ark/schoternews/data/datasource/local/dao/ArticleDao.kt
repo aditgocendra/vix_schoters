@@ -20,5 +20,7 @@ interface ArticleDao {
     @Query("DELETE FROM article")
     fun deleteAllRecord()
 
+    @Query("SELECT * FROM article where title = :title")
+    fun select(title : String) : Article
 
 }
