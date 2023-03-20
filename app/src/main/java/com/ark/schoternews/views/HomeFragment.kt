@@ -1,14 +1,16 @@
 package com.ark.schoternews.views
 
+import android.app.Dialog
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
+import android.widget.Toast
+import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.NavHostFragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.ark.schoternews.MainActivity
-import com.ark.schoternews.R
 import com.ark.schoternews.core.adapter.ArticleAdapter
 import com.ark.schoternews.data.repositories.NewsRepository
 import com.ark.schoternews.databinding.FragmentHomeBinding
@@ -42,8 +44,6 @@ class HomeFragment : Fragment() {
             }
         }
 
-
-
     }
 
     override fun onResume() {
@@ -63,12 +63,12 @@ class HomeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentHomeBinding.inflate(inflater, container, false)
-        val navHostFragment = requireActivity().supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
+        val navHostFragment = requireActivity().supportFragmentManager.findFragmentById(com.ark.schoternews.R.id.nav_host_fragment) as NavHostFragment
         val navController = navHostFragment.navController
 
 
         binding.recyclerNews.apply {
-            adapterArticle = ArticleAdapter(navController, R.id.action_homeFragment_to_detailNewsFragment)
+            adapterArticle = ArticleAdapter(navController, com.ark.schoternews.R.id.action_homeFragment_to_detailNewsFragment)
             adapter = adapterArticle
             layoutManager = LinearLayoutManager(activity)
         }
@@ -91,7 +91,36 @@ class HomeFragment : Fragment() {
         }
 
         binding.ivProfile.setOnClickListener {
-            navController.navigate(R.id.action_homeFragment_to_profileFragment)
+            navController.navigate(com.ark.schoternews.R.id.action_homeFragment_to_profileFragment)
+        }
+
+        binding.btnRemoveBookmark.setOnClickListener {
+            val dialog = Dialog(requireContext())
+            dialog.setContentView(com.ark.schoternews.R.layout.layout_dialog_confirmation)
+
+            dialog.window?.setLayout(
+                ViewGroup.LayoutParams.WRAP_CONTENT,
+                ViewGroup.LayoutParams.WRAP_CONTENT
+            )
+
+            dialog.setCancelable(false) //Optional
+
+            dialog.window?.attributes?.windowAnimations = com.ark.schoternews.R.style.DialogAnimation //Setting the animations to dialog
+
+            val btnYes = dialog.findViewById<TextView>(com.ark.schoternews.R.id.btnYes)
+            val btnCancel = dialog.findViewById<TextView>(com.ark.schoternews.R.id.btnCancel)
+
+            btnCancel.setOnClickListener {
+                dialog.dismiss()
+            }
+
+            btnYes.setOnClickListener {
+                viewModel.removeAllBookmark()
+                Toast.makeText(requireActivity(), "Success delete all data bookmark", Toast.LENGTH_SHORT).show()
+                dialog.dismiss()
+            }
+
+            dialog.show()
         }
 
         return binding.root
