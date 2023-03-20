@@ -7,6 +7,8 @@
 This application was made to complete the Virtual Internship Experience program at [Rakamin Academy](https://www.rakamin.com/virtual-internship-experience).
 This app is a news app, all data shown is taken from [NewsAPI](https://newsapi.org/).
 
+If you are willing to try this application, you can get it [here](https://github.com/aditgocendra/vix_schoters/releases/tag/v.0.0.1)
+
 ## Architecture on this project : MVVM
 
 <p align="center">
