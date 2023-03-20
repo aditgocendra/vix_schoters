@@ -44,8 +44,7 @@ class ArticleAdapter(private val navController : NavController, private val acti
 
         val author = "Author : ${article.author ?: "Unknown"}"
         val urlImage = article.urlToImage ?: ""
-        val formatter = SimpleDateFormat("yyyy-MM-dd", Locale.ENGLISH)
-        val publishedAt = "Published At : " + formatter.parse(article.publishedAt)
+        val publishedAt = "Published At : " + article.publishedAt.substring(0, 10)
 
 
 //      Set data in view

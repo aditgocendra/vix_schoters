@@ -54,11 +54,11 @@ class DetailNewsFragment : Fragment() {
 
         val title = arguments?.getString("title").toString()
         val urlImage = arguments?.getString("urlImage").toString()
-        val author = arguments?.getString("author").toString()
-        val publishedAt = arguments?.getString("publishedAt").toString()
         val description = arguments?.getString("description").toString()
         val content = arguments?.getString("content").toString()
         val url = arguments?.getString("url").toString()
+        var publishedAt = arguments?.getString("publishedAt").toString()
+        val author = arguments?.getString("author").toString()
 
         article = Article(
             id = 0,
@@ -73,6 +73,8 @@ class DetailNewsFragment : Fragment() {
 
 
         if (urlImage.isNotEmpty()) Picasso.get().load(urlImage).into(binding.ivImageArticle)
+
+        publishedAt = "Published At : ${publishedAt.substring(0, 10)}"
 
         binding.tvPublishedAt.text = publishedAt
         binding.tvAuthor.text = author
