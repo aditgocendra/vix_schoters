@@ -23,7 +23,6 @@ class HomeViewModel(private val newsRepository : NewsRepository) : ViewModel() {
             }
 
             if (response.isSuccessful && response.body() != null) {
-                Log.d("Test", response.code().toString())
                 listArticle.value = response.body()!!.articles
             }
         }
@@ -40,6 +39,19 @@ class HomeViewModel(private val newsRepository : NewsRepository) : ViewModel() {
             }
 
             listArticle.value = articles
+        }
+    }
+
+    fun removeAllBookmark(){
+        viewModelScope.launch {
+
+            try {
+                newsRepository.deleteAllArticle()
+
+            }catch (e : Exception){
+                Log.e("Error", e.message.toString())
+                return@launch
+            }
         }
     }
 
