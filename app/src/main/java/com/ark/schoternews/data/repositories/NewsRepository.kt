@@ -27,4 +27,16 @@ class NewsRepository(private val dbLocal : AppDatabase, private val newsRemote :
             dbLocal.articleDao().add(article)
         }
     }
+
+    suspend fun selectArticle(title : String) : Article {
+        return withContext(Dispatchers.IO){
+            dbLocal.articleDao().select(title)
+        }
+    }
+
+    suspend fun deleteAllArticle(){
+        return withContext(Dispatchers.IO){
+            dbLocal.articleDao().deleteAllRecord()
+        }
+    }
 }
